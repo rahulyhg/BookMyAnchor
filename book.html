@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>jQuery UI Slider functionality</title>
+		<link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+		<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+		<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<style type="text/css">
+			.sidenav {
+			    /*background-color: #f1f1f1;*/
+			    background-color: #00BFFF;
+			    height: 100%;
+			    padding-top: 70px;
+			    padding-left: 0;
+			    padding-right: 0;
+			    color:#fff;
+		    }
+		    .deatils-title{
+		    	background-color: #00BFFF;
+		    	height: 50px;
+		    	color: #fff;
+		    	text-align: center;
+		    	padding-top: 15px;
+		    }
+		    .deatils-title h4{
+		    	margin-top: 0;
+		    	font-weight: 600;
+		    }
+		    .row.content {height: 100vh !important}
+		    .profile-pic{
+		    	height: 250px;
+		    	width: 300px;
+		    	overflow: hidden;
+		    	margin-left: 15px;
+		    	/*border-radius: 70%;
+		    	border: 10px solid #333;*/
+		    }
+		    .navbar-inverse {
+		    	background-color: #00BFFF;
+    			border-color: #FFF;
+		    }
+		    .profile-container{
+		    	/*width: 50%;
+		    	margin-left: auto;
+		    	margin-right: auto;*/
+		    }
+		    .navbar-inverse .navbar-brand {
+		    	color: #fff;
+		    }
+		    .navbar-inverse .navbar-nav>li>a{
+		    	color: #fff;
+		    	font-weight: 600;
+		    	font-size: 16px;
+		    }
+		    .user-general-details ul{
+		    	padding-right: 100px;
+		    }
+		    .user-general-details ul li{
+		    	padding-bottom: 10px;
+		    }
+		    .biography{
+		    	display: block;
+		    	padding-top: 150px;
+		    }
+		    /*.row.content{
+		    	height: 100%;
+		    }*/
+		    .booking-info{
+		    	padding-top: 100px;
+		    }
+		    .shape {
+			    width: 200px; 
+			    height: 50px; 
+			    -webkit-transform: skew(-30deg); 
+			    -moz-transform: skew(-30deg); 
+			    transform: skew(-30deg);
+			    background: #000;
+			    margin: 20px;
+			}
+			.buttons-container{
+				margin-top: 70px;
+			}
+			.booking-info h3{
+				margin-bottom: 15px;
+			}
+			.booking-details-container{
+				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+				width: 31%;
+			    margin-left: 18px;
+			    margin-bottom: 31px;
+			    height: 170px;
+			    padding: 0;
+			    border-radius: 10%;
+			}
+			.details-full-view{
+				padding-left: 15px;
+				padding-right: 15px;
+				padding-top: 25px;
+			}
+			.quote-container{
+				margin-top: 150px;
+				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+				/*border-radius: 10%;*/
+				/*border: #CCC solid 1px;*/
+				height: 450px;
+				padding: 55px;
+			}
+			.quote-container div input,select{
+				margin-bottom: 25px;
+				height: 35px;
+			}
+			.inner-addon { 
+			    position: relative; 
+			}
+
+			/* style icon */
+			.inner-addon .glyphicon {
+			  position: absolute;
+			  padding: 10px;
+			  pointer-events: none;
+			}
+
+			/* align icon */
+			.left-addon .glyphicon  { left:  0px;}
+			.right-addon .glyphicon { right: 0px;}
+
+			/* add padding  */
+			.left-addon input  { padding-left:  30px; }
+			.right-addon input { padding-right: 30px; }
+			.left-addon select  { padding-left:  30px; }
+			.right-addon select { padding-right: 30px; }
+			.hide{
+				display: none;
+			}
+		</style>
+		<script type="text/javascript">
+        $(document).ready(function(){
+          $("#btn-biography").click(function(){
+            $("#biography").show();
+            $("#photos").hide();
+            $("#booking-info").hide();
+            $("#btn-booking-info").removeClass("actived");
+            $("#btn-photos").removeClass("actived");
+            $("#btn-biography").addClass("actived");
+          });
+
+          $("#btn-booking-info").click(function(){
+            $("#biography").hide();
+            $("#photos").hide();
+            $("#booking-info").show();
+            $("#btn-biography").removeClass("actived");
+            $("#btn-photos").removeClass("actived");
+            $("#btn-booking-info").addClass("actived");
+          });
+
+          $("#btn-photos").click(function(){
+            $("#biography").hide();
+            $("#photos").show();
+            $("#booking-info").hide();
+            $("#btn-booking-info").removeClass("actived");
+            $("#btn-biography").removeClass("actived");
+            $("#btn-photos").addClass("actived");
+          });
+          $("#btn-biography").addClass("actived");
+          $(".contact-submit").click(function(){
+          	$(".contact-details-form").addClass("hide");
+          	$(".event-details-form").removeClass("hide");
+          });
+        });
+      </script>
+	</head>
+	<body>
+	<!-- header -->
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Portfolio</a>
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="#" id="btn-biography">Home</a>
+						</li>
+						<li>
+							<a href="#" id="btn-booking-info">Booking Info</a>
+						</li>
+						<li>
+							<a href="#" id="btn-photos">Photo</a>
+						</li>
+						<li>
+							<a href="#" id="btn-video">Video</a>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="#">
+								<span class="glyphicon glyphicon-log-in"></span> Login
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	<!-- ends header -->
+
+	<!-- side bar -->
+		<div class="container-fluid">
+			<div class="row content">
+				<div class="col-sm-3 sidenav">
+					<div class="profile-container">
+						<div class="profile-pic">
+							<img src="img/anchors/anjana/_91A9409.jpg" class="img-responsive">
+						</div>
+					</div>	
+					<div class="text-center">
+						<h2>Anjana</h2>
+						<h3>Emcee/Anchor</h3>
+					</div>		
+				</div>
+				<div class="col-sm-9">
+					 <!-- Contact Details details -->
+					<div class="contact-details-form">
+						<form>
+							<div class="quote-container">
+								<h3 class="text-center">Contact Details</h3>
+								<div class="col-sm-6">
+									<div class="inner-addon left-addon">
+	    								<i class="glyphicon glyphicon-user"></i>
+	    								<input type="text" class="form-control" placeholder="Contact Person"/>
+									</div>
+
+									<div class="inner-addon left-addon">
+	    								<i class="glyphicon glyphicon-user"></i>
+	    								<input type="text" class="form-control" placeholder="Mobile Number"/>
+									</div>
+
+									<div class="inner-addon left-addon">
+	    								<i class="glyphicon glyphicon-user"></i>
+	    								<input type="text" class="form-control" placeholder="Company Name"/>
+									</div>
+
+									<div class="inner-addon left-addon">
+	    								<i class="glyphicon glyphicon-user"></i>
+	    								<input type="text" class="form-control" placeholder="Company address"/>
+									</div>
+									<!-- <input type="text" name="" class="col-sm-12 form-control" placeholder="Mobile Number">
+									<input type="date" name="" class="col-sm-12 form-control" placeholder="Event Date">
+									<input type="text" name="" class="col-sm-12 form-control" placeholder="Budget"> -->
+								</div>
+								<div class="col-sm-6">
+
+									<div class="inner-addon left-addon">
+	    								<i class="glyphicon glyphicon-user"></i>
+	    								<input type="text" class="form-control" placeholder="Email"/>
+									</div>
+
+									<div class="inner-addon left-addon">
+	    								<i class="glyphicon glyphicon-user"></i>
+	    								<input type="text" class="form-control" placeholder="Alternative number"/>
+									</div>
+
+									<div class="inner-addon left-addon">
+	    								<i class="glyphicon glyphicon-user"></i>
+	    								<input type="text" class="form-control" placeholder="Budget"/>
+									</div>
+
+									<!-- <div class="inner-addon left-addon">
+	    								<i class="glyphicon glyphicon-user"></i>
+	    								<select class="col-sm-12 form-control">
+											<option value="" disabled selected>Event Type</option>
+											<option>A</option>
+											<option>B</option>
+										</select>
+									</div> -->
+								</div>
+								<button type="button" class="col-sm-12 btn btn-primary contact-submit">Submit</button>
+							</div>
+						</form>
+					</div>
+					<!-- contact details end -->
+					<!-- event details -->
+					<div class="event-details-form hide">
+						<form>
+							<div class="quote-container">
+								<h3 class="text-center">Event Details</h3>
+								<div class="col-sm-6">
+									<div class="inner-addon left-addon">
+	    								<i class="glyphicon glyphicon-user"></i>
+	    								<input placeholder="Start Time" class="textbox-n form-control" type="text" onfocus="(this.type='time')"  id="date">
+									</div>
+
+									<div class="inner-addon left-addon">
+	    								<i class="glyphicon glyphicon-user"></i>
+	    								<input type="text" class="form-control" placeholder="Event Place"/>
+									</div>
+
+									<div class="inner-addon left-addon">
+	    								<i class="glyphicon glyphicon-user"></i>
+	    								<input type="text" class="form-control" placeholder="Event Briefing"/>
+									</div>
+
+									<div class="inner-addon left-addon">
+	    								<i class="glyphicon glyphicon-user"></i>
+	    								<select class="form-control">
+											<option value="" disabled selected>Costume</option>
+											<option>A</option>
+											<option>B</option>
+										</select>
+									</div>
+									<div class="inner-addon left-addon">
+	    								<i class="glyphicon glyphicon-user"></i>
+	    								<input type="text" class="form-control" placeholder="City"/>
+									</div>
+									<!-- <input type="text" name="" class="col-sm-12 form-control" placeholder="Mobile Number">
+									<input type="date" name="" class="col-sm-12 form-control" placeholder="Event Date">
+									<input type="text" name="" class="col-sm-12 form-control" placeholder="Budget"> -->
+								</div>
+								<div class="col-sm-6">
+
+									<div class="inner-addon left-addon">
+	    								<i class="glyphicon glyphicon-user"></i>
+	    								<input placeholder="End Time" class="textbox-n form-control" type="text" onfocus="(this.type='time')"  id="date">
+									</div>
+
+									<div class="inner-addon left-addon">
+	    								<i class="glyphicon glyphicon-user"></i>
+	    								<input type="text" class="form-control" placeholder="Event Venue"/>
+									</div>
+
+									<div class="inner-addon left-addon">
+	    								<i class="glyphicon glyphicon-user"></i>
+	    								<input type="text" class="form-control" placeholder="Duration"/>
+									</div>
+
+									<div class="inner-addon left-addon">
+	    								<i class="glyphicon glyphicon-user"></i>
+	    								<select class="form-control">
+											<option value="" disabled selected>Event Type</option>
+											<option>A</option>
+											<option>B</option>
+										</select>
+									</div>
+									<div class="inner-addon left-addon">
+	    								<i class="glyphicon glyphicon-user"></i>
+	    								<input type="text" class="form-control" placeholder="State"/>
+									</div>
+								</div>
+								<button type="submit" class="col-sm-12 btn btn-primary">Submit</button>
+							</div>
+						</form>
+					</div>
+					<!-- event details end -->
+				</div>
+			</div>
+		</div>
+	<!-- ends side bar -->
+
+	</body>
+</html>

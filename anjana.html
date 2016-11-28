@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>jQuery UI Slider functionality</title>
+      <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+      <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+      <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+      <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      
+      <script type="text/javascript">
+        $(document).ready(function(){
+          $("#btn-biography").click(function(){
+            $("#biography").show();
+            $("#photos").hide();
+            $("#booking-info").hide();
+            $("#btn-booking-info").removeClass("actived");
+            $("#btn-photos").removeClass("actived");
+            $("#btn-biography").addClass("actived");
+          });
+
+          $("#btn-booking-info").click(function(){
+            $("#biography").hide();
+            $("#photos").hide();
+            $("#booking-info").show();
+            $("#btn-biography").removeClass("actived");
+            $("#btn-photos").removeClass("actived");
+            $("#btn-booking-info").addClass("actived");
+          });
+
+          $("#btn-photos").click(function(){
+            $("#biography").hide();
+            $("#photos").show();
+            $("#booking-info").hide();
+            $("#btn-booking-info").removeClass("actived");
+            $("#btn-biography").removeClass("actived");
+            $("#btn-photos").addClass("actived");
+          });
+          $("#btn-booking-info").addClass("actived");
+        });
+      </script>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Portfolio</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#">About</a>
+            </li>
+            <li>
+              <a href="#">Gallery</a>
+            </li>
+            <li>
+              <a href="#">Contact</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="#">
+                <span class="glyphicon glyphicon-log-in"></span> Login
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+      <div class="profile-dp-container">
+        <div class="profile-dp">
+          <img src="img/anchors/anjana/_91A9440.jpg" class="img-responsive">
+        </div>
+        <h4>Anjana Grace Prince</h4>
+      </div>
+    <div class="jumbotron logo-container" style="height: 360px; overflow: hidden;">
+      <img class="img-responsive" src="img/profile.jpg">
+    </div>
+
+    <div class="container-fluid profile-details-container">
+      <nav class="navbar navbar-inverse navbar-fixed">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar1">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar1">
+            <ul class="nav navbar-nav profile-header">
+              <li>
+                <a id="btn-booking-info"  href="#booking-info">Booking Info</a>
+              </li>
+              <li>
+                <a id="btn-biography"  href="#biography">Biography</a>
+              </li>
+              <li>
+                <a id="btn-photos"  href="#photos">photos</a>
+              </li>
+              <li>
+                <a id="btn-videos"  href="#videos">Videos</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- booking info -->
+      <div class="text-center booking-info" id="booking-info">
+        <div class="row">
+          <div class="col-md-4 options">
+            <div class="title-part">
+              <h4>Languages Known</h4>
+            </div>
+            <div class="discription-part">
+              <ul>
+                <li>English</li>
+                <li>Malayalam</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-4 options">
+            <div class="title-part">
+              <h4>Open To Travel</h4>
+            </div>
+            <div class="discription-part">
+              <p>Nationwide</p>
+            </div>
+          </div>
+
+          <div class="col-md-4 options">
+            <div class="title-part">
+              <h4>Enlisted In</h4>
+            </div>
+            <div class="discription-part">
+              <ul>
+                <li>Anchor</li>
+                <li>Emcee</li>
+                <li>Radio Jockey</li>
+                <li>Voice over Artist</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+        <div class="row"> 
+          <div class="col-md-4 options">
+            <div class="title-part">
+              <h4>Performing Team</h4>
+            </div>
+            <div class="discription-part">
+              <p>1 Member/s</p>
+            </div>
+          </div>
+
+          <div class="col-md-4 options">
+            <div class="title-part">
+              <h4>Performance Duration</h4>
+            </div>
+            <div class="discription-part">
+              <p>60 - 90 Mins</p>
+            </div>
+          </div>
+
+          <div class="col-md-4 options">
+            <div class="title-part">
+              <h4>Events Preferred</h4>
+            </div>
+            <div class="discription-part">
+              <p>CAMPUS EVENTS, CONCERTS/FESTIVALS, CORPORATE EVENTS, RESTAURANTS-PUBS-BARS, WEDDINGS</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- end booking info -->
+    </div>  
+    <!-- biography -->
+    <div class="biography" id="biography">
+      <h3 class="text-center">Biography</h3>
+      <div class="biography-details">
+        <p>Flamboyant host,VJ,presenter &amp; a proffessional singer who is entertaining,dynamic &amp; passionate in bringing your events instyle &amp; beyond your ecpectation.Now with almost 4 years of experience on stage.</p>
+      </div>
+    </div>
+    <!-- ends biograpgy -->
+
+    <!-- photos -->
+    <div class="photos text-center" id="photos">
+      <div class="row">
+        <div class="col-md-4 actor-images">
+          <img src="img/anchors/anjana/_91A9409.jpg" class="img-responsive anchor-container">
+        </div>
+        <div class="col-md-4 actor-images">
+          <img src="img/anchors/anjana/_91A9422.jpg" class="img-responsive anchor-container">
+        </div>
+        <div class="col-md-4 actor-images">
+          <img src="img/anchors/anjana/_91A9440.jpg" class="img-responsive anchor-container">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4 actor-images">
+          <img src="img/anchors/anjana/_91A9491.jpg" class="img-responsive anchor-container">
+        </div>
+        <div class="col-md-4 actor-images">
+          <img src="img/anchors/anjana/_91A9506.jpg" class="img-responsive anchor-container">
+        </div>
+        <div class="col-md-4 actor-images">
+          <img src="img/anchors/anjana/_91A9618.jpg" class="img-responsive anchor-container">
+        </div>
+      </div>
+    </div>
+    <!-- end photos -->
+
+    <footer class="container-fluid text-center">
+      <div class="col-md-4">
+        <span class="glyphicon glyphicon-earphone"></span>
+        <span>+91 9995599449</span>
+      </div>
+      <div class="col-md-4">
+        <span class="glyphicon glyphicon-envelope"></span>
+        <span>info@bookmyanchors.com</span>
+      </div>
+      <div class="col-md-4">
+        <span class="glyphicon glyphicon-map-marker"></span>
+        <span>skldmglsmg</span>
+      </div>
+      <div class="col-md-6">
+        <span>www.shadowtechlt.com</span>
+      </div>
+      <div class="col-md-6">
+        <div>
+          <div class="google"></div>
+        </div>
+      </div>
+    </footer>
+
+
+  </body>
+</html>
+
